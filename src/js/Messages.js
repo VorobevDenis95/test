@@ -5,17 +5,18 @@ export default class Messages {
     this.value = value;
     this.date = formatDate(new Date());
     this.container = document.querySelector('.messages__container');
+
     this.bindToDom();
-}
+  }
 
   bindToDom() {
     const div = document.createElement('div');
     div.classList.add('message');
-    div.innerHTML = Messages.markup;
+    div.innerHTML = this.markup;
     this.container.append(div);
   }
 
-  static get markup() {
+  get markup() {
     return `
       <span class='message__data'>${this.date}</span>
       <p class='message__body'>${this.value}</p>
